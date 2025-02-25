@@ -42,13 +42,13 @@ def trim_keyframes(data, frameDict, max_show_num=4):
 #     trimmed_frame_ids = sample_frames(trimmed_frame_ids, max_show_num)
 #     return trimmed_frame_ids
 
-#
-# def trim_keyframes_test(data, frame_ids, fps, max_show_num=4):
-#     trimmed_frame_ids = [frame for frame in frame_ids if
-#                          int(frame) >= (data['start']) * fps[data['video_id'] + '.mp4'] + 1 and int(frame) < (
-#                          data['end']) * fps[data['video_id'] + '.mp4'] + 1]
-#     trimmed_frame_ids = sample_frames(trimmed_frame_ids, max_show_num)
-#     return trimmed_frame_ids
+
+def trim_keyframes_test(data, frame_ids, fps, max_show_num=4):
+    trimmed_frame_ids = [frame for frame in frame_ids if
+                         int(frame) >= (data['start']) * fps[data['video_id'] + '.mp4'] + 1 and int(frame) < (
+                         data['end']) * fps[data['video_id'] + '.mp4'] + 1]
+    trimmed_frame_ids = sample_frames(trimmed_frame_ids, max_show_num)
+    return trimmed_frame_ids
 
 
 def frame_plot(frame_list, frame_dir):

@@ -7,7 +7,7 @@ import torch.nn as nn
 from src.param import args
 from src.lxrt.entry import LXRTEncoder, generate_rel_target_mask
 from src.lxrt.transformer import TransformerDecoder, TransformerDecoderLayer
-from src.lxrt.modeling_capsbert import BertLayerNorm, GeLU, HGEmbeddings, CrossEncoder, BERT
+from src.lxrt.modeling_capsbert import BertLayerNorm, GeLU, HGEmbeddings, CrossEncoder#, BERT
 from src.video_encoder import VideoBackbone
 
 
