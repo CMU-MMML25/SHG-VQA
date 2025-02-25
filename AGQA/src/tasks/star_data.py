@@ -125,9 +125,9 @@ class STARTorchDataset(Dataset):
             topk = -1
 
         root_dir = '../../'
-        self.annotation_dir = root_dir + 'STAR/STAR_Benchmark/annotations/STAR_classes/'
-        self.video_dir = root_dir + 'ActionGenome/ActionGenome/dataset/ag/videos/'
-        self.frame_dir = root_dir + 'ActionGenome/ActionGenome/dataset/ag/frames/'
+        self.annotation_dir = root_dir + 'STAR/annotations/STAR_classes/'
+        self.video_dir = root_dir + 'STAR/data/Charades_v1_480'
+        self.frame_dir = root_dir + 'ActionGenome/dataset/ag/frames/'
         self.pose_dir = root_dir + 'STAR/data/pose/'
         self.qtype = args.qtype
         print("Training/evaluating for question type:" + self.qtype)
@@ -146,7 +146,7 @@ class STARTorchDataset(Dataset):
         self.qa_arrange = QAInputArrange(args.qa_arrange_type)
 
         # load relation and object vocabulary
-        self.obj_vocab, self.rel_vocab = get_vocab(self.annotation_dir)
+        self.obj_vocab, self.rel_vocab, _ = get_vocab(self.annotation_dir)
         self.action_classes = get_act_cls(self.annotation_dir)
 
         # Only kept the data with loaded image features
