@@ -17,30 +17,30 @@ def sample_frames(frame_ids, max_show_num):
     interval = int(len(frame_ids) / max_show_num)
     return frame_ids[::interval]
 
+# switch to the below function when using STAR dataset
+# def trim_keyframes(data, frameDict, max_show_num=4):
+#     vidId = data["video_id"]
+#     questionId = data["question_id"]
 
-def trim_keyframes(data, frameDict, max_show_num=4):
-    vidId = data["video_id"]
-    questionId = data["question_id"]
-
-    # trimmed_frame_ids = totalGroundings[questionId]
-
-
-    # if trimmed_frame_ids == []:     # If no grounding frames were given, take all keyframes and sample
-    trimmed_frame_ids = frameDict[vidId]
+#     # trimmed_frame_ids = totalGroundings[questionId]
 
 
-    trimmed_frame_ids = list(sorted(trimmed_frame_ids))
-    trimmed_frame_ids = sample_frames(trimmed_frame_ids, max_show_num)
-    return trimmed_frame_ids
+#     # if trimmed_frame_ids == []:     # If no grounding frames were given, take all keyframes and sample
+#     trimmed_frame_ids = frameDict[vidId]
 
 
-# def trim_keyframes(data, fps, max_show_num=4):
-#     frame_ids = list(sorted(data['situations'].keys()))
-#     trimmed_frame_ids = [frame for frame in frame_ids if
-#                          int(frame) >= (data['start']) * fps[data['video_id'] + '.mp4'] + 1 and int(frame) < (
-#                          data['end']) * fps[data['video_id'] + '.mp4'] + 1]
+#     trimmed_frame_ids = list(sorted(trimmed_frame_ids))
 #     trimmed_frame_ids = sample_frames(trimmed_frame_ids, max_show_num)
 #     return trimmed_frame_ids
+
+
+def trim_keyframes(data, fps, max_show_num=4):
+    frame_ids = list(sorted(data['situations'].keys()))
+    trimmed_frame_ids = [frame for frame in frame_ids if
+                         int(frame) >= (data['start']) * fps[data['video_id'] + '.mp4'] + 1 and int(frame) < (
+                         data['end']) * fps[data['video_id'] + '.mp4'] + 1]
+    trimmed_frame_ids = sample_frames(trimmed_frame_ids, max_show_num)
+    return trimmed_frame_ids
 
 
 def trim_keyframes_test(data, frame_ids, fps, max_show_num=4):

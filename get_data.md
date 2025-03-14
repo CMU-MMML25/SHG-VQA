@@ -6,6 +6,11 @@
 1. **STAR Dataset**: Ensure the STAR dataset is set up in a parallel folder.
 2. **ActionGenome Dataset**: Ensure the ActionGenome dataset is set up in a parallel folder.
 
+```
+cd ActionGenome
+python tools/dump_frames.py
+```
+
 ## Configuration
 Verify that the hardcoded paths in `SHG-VQA/AGQA/src/tasks/star_data.py` are correct:
 
