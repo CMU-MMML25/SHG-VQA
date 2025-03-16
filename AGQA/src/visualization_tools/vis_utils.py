@@ -229,6 +229,7 @@ def get_vocab_dict(label_dir):
     obj_to_ind, ind_to_obj, ind_to_rel, rel_to_ind = {}, {}, {}, {}
     obj_vocab, rel_vocab, verb_vocab = {}, {}, {}
 
+    print('label_dir', label_dir)
     with open(label_dir + "/object_classes.txt") as f:
         lines = f.readlines()
         for line in lines:
@@ -269,7 +270,7 @@ def get_answer_vocab(label_dir):
 
 
 
-def create_relationship_data(annotation_dir, sceneGraphs):
+def create_relationship_data(sceneGraphs, annotation_dir):
     obj_vocab, rel_vocab, verb_vocab = get_vocab_dict(annotation_dir)
 
     rel_triplets = []
